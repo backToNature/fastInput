@@ -1,0 +1,2 @@
+# fastInput
+touchInput
