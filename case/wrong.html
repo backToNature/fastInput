@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>错误case</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta charset="utf-8" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .scroll-wrapper li {
+            list-style: none;
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            font-size: 18px;
+        }
+        .scroll-wrapper li:nth-child(odd) {
+            /*background: #f55;*/
+        }
+        .scroll-wrapper li:nth-child(even) {
+            background: #7e57c2;
+            color: #fff;
+        }
+        .case {
+            width: 100%;
+            height: 80px;
+            opacity: 0.9;
+            background: #1489e6;
+            position: fixed;
+            text-align: center;
+            line-height: 80px;
+            color: #fff;
+            font-size: 18px;
+        }
+        .casea {
+            top: 0;
+            background: #f55;
+        }
+        .caseb {
+            top: 100px;
+            /*background: #ff9800;*/
+            background: #f55;
+        }
+        .casec {
+            top: 200px;
+            background: #f55;
+            /*background: #699f00;*/
+        }
+        .cased {
+            top: 300px;
+            background: #699f00;
+
+        }
+        .footer {
+            width: 100%;
+            padding: 10px 0;
+            height: 40px;
+            background: #e1e1e1;
+            position: fixed;
+            text-align: center;
+            /*line-height: 120px;*/
+            color: #666;
+            font-size: 18px;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul class="scroll-wrapper"></ul>
+    <div class="case casea">middle overlay</div>
+    <div class="case caseb">fixed bar</div>
+    <div class="case casec">full-screen without locking body</div>
+    <div class="case cased">correct way</div>
+    <div class="footer">fixed position footer(always in unexpected position)</div>
+    <script src="http://www.dearhaoge.com/touchFeedback/src/touchFeedback.js"></script>
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/jquery-tap.js"></script>
+    <script>
+        $(function () {
+            var html = '', i;
+            for (i = 1; i <= 100; i++) {
+                html += '<li>'+i+'</li>';
+            }
+            $('.scroll-wrapper').html(html);
+        });
+    </script>
+</body>
+</html>
