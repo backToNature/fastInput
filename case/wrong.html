@@ -95,6 +95,15 @@
             width: 100%;
             height: 30px;
         }
+        .cover {
+            height: 100%;
+            width: 100%;
+            background: #fff;
+        }
+        .text {
+            width: 100%;
+            height: 100px;
+        }
         .mask {
             display: none;
             background: #000;
@@ -127,6 +136,9 @@
             <input type="passowrd" id="pwd">
         </div>
     </div>
+    <div class="overlay cover">
+        <textarea class="text" placeholder="input here"></textarea>
+    </div>
     <div class="mask"></div>
     <!-- <script src="http://www.dearhaoge.com/touchFeedback/src/touchFeedback.js"></script> -->
     <script src="../lib/jquery.js"></script>
@@ -150,6 +162,9 @@
             $('.caseb').on('tap', function (e) {
                 e.preventDefault();
                 $('.normal').focus();
+            });
+            $('.casec').on('tap', function () {
+
             });
         });
     </script>
