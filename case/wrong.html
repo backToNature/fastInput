@@ -171,7 +171,7 @@
         </div>
     </div>
     <div class="wrapper">
-        <div class="press"></div>
+        <!-- <div class="press"></div> -->
         <div class="overlay cover">
             <textarea class="text" placeholder="input here"></textarea>
             <div class="back">back</div>
@@ -184,6 +184,33 @@
     <script>
         // new TouchFeedback('body');
         $(function () {
+
+            // 文本区域滚动逻辑
+            var $textarea = $('.text');
+            (function () {
+                var eventData = {};
+                $textarea.on('touchstart', function (e) {
+                    var event = e.originalEvent.changedTouches ? e.originalEvent.changedTouches[0] : e;
+                    eventData.startY = event.pageY;
+                });
+
+                $textarea.on('touchmove', function (e) {
+                    e.stopPropagation();
+                    var event = e.originalEvent.changedTouches ? e.originalEvent.changedTouches[0] : e;
+                    var scorll = $textarea.scrollTop(), scrollHeight = $textarea[0].scrollHeight - $textarea.innerHeight();
+                    var startY = eventData.startY;
+                    if (scorll <= 5 && (startY - event.pageY) <= 0) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                    if (scorll >= scrollHeight && (startY - event.pageY) >= 0) {
+                        e.preventDefault();
+                        return false; 
+                    }
+                });
+            }());
+
             $('.press').height($(window).height());
             var html = '', i;
             for (i = 1; i <= 100; i++) {
@@ -205,6 +232,8 @@
             $('.back').on('tap', function () {
                 $('.wrapper').hide();
                 $('body').removeClass('lock');
+                $('body').off('touchmove.b-scroll');
+
             });
             $('.casec').on('tap', function (e) {
                 e.preventDefault();
@@ -214,6 +243,13 @@
             $('.cased').on('tap', function (e) {
                 e.preventDefault();
                 $('body').addClass('lock');
+                $('body').on('touchmove.b-scroll', function (e) {
+                    e.preventDefault();
+                    return false;
+                });
+                $('.text').on('touchmove', function (e) {
+                    e.stopPropagation();
+                });
                 $('.wrapper').show();
                 $('.text').focus();
             });
