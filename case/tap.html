@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .tap {
+            width: 100%;
+            height: 50px;
+            background: red;
+        }
+        .wrapper {
+            padding: 60px;
+            background: #000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="tap"></div>
+        <img src="http://wiki.sohu-inc.com/download/attachments/17402038/image2015-7-7%2011%3A29%3A16.png?version=1&modificationDate=1436249306000&api=v2" alt="">
+    </div>
+    <script src="../lib/zepto.js"></script>
+    <script src="../lib/zepto-tap.js"></script>
+    <script>
+        $(function () {
+            // $('.wrapper').delegate('.tap', 'click', function (e) {
+            //     console.log(2134145);
+            // });
+            $('.wrapper').on('tap', function (e) {
+                console.log(2);
+            });
+            $('.tap').on('tap', function (e) {
+                e.stopPropagation();
+                console.log(1);
+            });
+            // $('.tap').on('tap', function () {
+            //     console.log(123123);
+            // });
+        });
+    </script>
+</body>
+</html>
