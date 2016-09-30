@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>fast keyboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .touch {
+            height: 200px;
+            width: 100%;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+        }
+        .test {
+            width: 80%;
+            height: 200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h3>user fast-focus</h3>
+    <input type="text" id="test2" class="test">
+    <h3>origin</h3>
+    <input type="text" id="test3" class="test">
+    <script src="../lib/fast-focus.js"></script>
+    <script>
+        FastFocus('body');
+    </script>
+    <script src="http://10.16.39.69:8001/target/target-script-min.js#anonymous"></script>
+</body>
+</html>
